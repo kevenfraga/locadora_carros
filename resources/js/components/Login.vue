@@ -67,7 +67,7 @@
         },
         methods: {
             login(e){
-                let url = ''
+                let url = ' http://localhost/api/login'
                 let configuracao = {
                     method: 'post',
                     body: new URLSearchParams({
@@ -76,6 +76,14 @@
                     })
                 }
                 fetch(url, configuracao)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.token){
+                        document.cookie = 'token='+data.token+'docume'
+                    }
+
+                    e.target.submit()
+                })
             }
         }
     }
