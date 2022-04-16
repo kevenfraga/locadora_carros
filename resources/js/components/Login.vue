@@ -6,7 +6,7 @@
                     <div class="card-header">Login</div>
 
                     <div class="card-body">
-                        <form method="POST" action="" @submit.prevent="login($event)">
+                        <form method="POST" action="" >
                             <input type="hidden" name="_token" :value="token_csrf">
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail</label>
@@ -67,9 +67,9 @@
         },
         methods: {
             login(e){
-                let url = ' http://localhost/api/login'
+                let url = ''
                 let configuracao = {
-                    method: 'post',
+                    method: 'POST',
                     body: new URLSearchParams({
                         'email': this.email,
                         'password': this.password

@@ -20,3 +20,4 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/marcas', [App\Http\Controllers\MarcasController::class, 'index'])->name('marcas')->middleware('auth');
